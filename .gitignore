@@ -1,0 +1,8 @@
+*~
+/dictionaries/reductor.py
+/brute_venv/
+/html/
+/src/__pycache__/
+/test/__pycache__/
+#*#
+/targets/*

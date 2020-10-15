@@ -1,0 +1,3 @@
+pdoc3
+pytest
+pexpect

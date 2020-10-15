@@ -1,0 +1,16 @@
+----------------
+BASIC:
+basic1 = 026  
+basic2 = 187
+basic3 = 255
+----------------
+INTERMEDIATE:
+intermediate1 = c04t3d
+intermediate2 = 50l4r15
+intermediate3 = 
+----------------
+ADVANCE:
+advance1 = 
+advance2 = 
+advance3 = 
+----------------
