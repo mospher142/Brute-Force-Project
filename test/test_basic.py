@@ -1,11 +1,11 @@
 import pytest
 import sys
-sys.path.append("./src/")
-
+sys.path.append("../src/")
+import brute_basic
 
 #You will need to write tests for your own functions, or change tests for ones you modify
 
-import brute_basic
+
 
 
 def test_guessGenerator():

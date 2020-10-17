@@ -38,7 +38,7 @@ def open_create_file(fl):
 
         return base
 
-file_ = open_create_file("../dictionaries/list.txt")
+file_ = open_create_file("../dictionaries/basic/list.txt")
 
 #----------------------------------------------------------------------------------------------------------------------------
 
