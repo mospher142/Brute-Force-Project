@@ -4,13 +4,8 @@ from brutus import Binary
 #
 import pathlib
 
-
-# This is a starting-point for your project
-# Most of the work is done for the basic task
-# Intermediate will require reading from a dictionary file and creating guesses based on the contents
-# For the advanced task, see the supporting module "brute_time"
-
 #----------------------------------------------------------------------------------------------------------------------------
+#
 def create_list(list, item):
         list.append(item)
         pin = [[[(str(x) + str(y) + str(z)) for z in range(len(list))] for y in range(len(list))] for x in range(len(list))]
@@ -37,6 +32,7 @@ def open_create_file(fl):
                 base = file.read().split('\n')
 
         return base
+
 
 file_ = open_create_file("../dictionaries/basic/list.txt")
 

@@ -47,7 +47,6 @@ if __name__=="__main__":
 
     #dar a password os valores de document
     password_digits = document
-    password_single_digit = []
 
     dicionary = {'o': '0', 'i': '1', 'e': '3', 'a': '4', 's':'5'}
 
@@ -57,7 +56,8 @@ if __name__=="__main__":
     for key,value in dicionary.items():
         password_digits = ([item.replace(key, value) for item in password_digits])
     
-    
+    password_single_digit = []
+
     for y in range(10):
         for x in document:
             password_single_digit.append(str(x) + str(y))
