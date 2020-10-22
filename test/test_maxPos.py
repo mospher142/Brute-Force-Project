@@ -1,6 +1,7 @@
 import pytest
 import sys
-sys.path.append("./src/")
+sys.path.append("../src/")
+
 
 
 #You will need to write tests for your own functions, or change tests for ones you modify

@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 """ Brutus: A simple password-protected password brute-force support tool
 
 Brutus provides a simple interface for you to run a binary or script and test a password, simplifying the task of breaking passwords with brute force.

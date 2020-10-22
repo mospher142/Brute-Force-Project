@@ -1,40 +1,44 @@
 #!/usr/bin/env python3
 from brutus import Binary
+from itertools import product
 
 #
 import pathlib
 
 #----------------------------------------------------------------------------------------------------------------------------
-#
+
+
+#funcao criar lista 
 def create_list(list, item):
-        list.append(item)
-        pin = [[[(str(x) + str(y) + str(z)) for z in range(len(list))] for y in range(len(list))] for x in range(len(list))]
-        return pin
-    
+    list.append(item)
+    pin = [[[(str(x) + str(y) + str(z)) for z in range(len(list))] for y in range(len(list))] for x in range(len(list))]
+    return pin
+        
 mylist = []
 for x in range(10):
     mylist = create_list(mylist, x)
 
 def open_create_file(fl):
-        file = pathlib.Path(fl)
-        if file.exists ():
-            with open(fl, "r") as file:
-                base = file.read().split('\n')
-        else:
-            #create a file [list.txt] 
-            with open(fl, "w+") as file:
-                for y in range(len(mylist)):
-                    for w in range(len(mylist[y])):
-                        for z in range(len(mylist[w])):
-                            file.write(f"{mylist[y][w][z]}\n")
-                            
-            with open(fl, "r") as file:
-                base = file.read().split('\n')
+    file = pathlib.Path(fl)
+    if file.exists ():
+        with open(fl, "r") as file:
+            base = file.read().split('\n')
+    else:
+        #create a file [list.txt] 
+        with open(fl, "w+") as file:
+            for y in range(len(mylist)):
+                for w in range(len(mylist[y])):
+                    for z in range(len(mylist[w])):
+                        file.write(f"{mylist[y][w][z]}\n")
+                                
+        with open(fl, "r") as file:
+            base = file.read().split('\n')
 
-        return base
+    return base
 
 
 file_ = open_create_file("../dictionaries/basic/list.txt")
+
 
 #----------------------------------------------------------------------------------------------------------------------------
 
@@ -50,11 +54,8 @@ def breakBinary(target, promptText, failText):
         None: if no successful attempt was made
         string: a successful password"""
 
-    
     guesses=file_
 
-    
-    
     for g in guesses:        
 
         #The actual attempt
@@ -62,7 +63,6 @@ def breakBinary(target, promptText, failText):
         b.run()
         success=b.attempt(promptText,g, failText)
 
-        
         if success:
             print(f"The Guess '{g}' appears to be correct")
             return g #Return the answer. No need to "break" because the return exits the function

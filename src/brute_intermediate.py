@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
+
 from brutus import Binary
 
-#----------------------------------------------------------
+#MYCODE---------------------------------------------------------
 def wordsFromFile(filePath):
 
     with open(filePath) as file:
@@ -41,7 +42,7 @@ def breakBinary(target, promptText, failText, guesses):
     
 if __name__=="__main__":
 
-    #----------------------------------------------------------
+    #MYCODE---------------------------------------------------------
     #Load the dictionary
     document=wordsFromFile("../dictionaries/intermediate/base.txt")
 
@@ -50,9 +51,11 @@ if __name__=="__main__":
 
     dicionary = {'o': '0', 'i': '1', 'e': '3', 'a': '4', 's':'5'}
 
+    #dicionary = {'key':'value'}
+    #key -> letter 
+    #value -> Number
+
     #isto vai converter as letras da palavra pelo respetivo numero que está no dicionario
-    #key -> letra 
-    #value -> numero
     for key,value in dicionary.items():
         password_digits = ([item.replace(key, value) for item in password_digits])
     
@@ -61,16 +64,15 @@ if __name__=="__main__":
     for y in range(10):
         for x in document:
             password_single_digit.append(str(x) + str(y))
+
     
     #razao pq fiz isto e não adicionei as novas palavras à lista. Pois pq depois o diconario pode mudar e assim essas passwords adicionadas são inuteis
     word_list = (document + password_digits + password_single_digit)
-
-
     #----------------------------------------------------------
     
     # Create a simple menu system to pick the binary we want to force
     targets=[]
-    targets.append(["../targets/intermediate/intermediate1","Password: ", "Passwo   rd Incorrect"])
+    targets.append(["../targets/intermediate/intermediate1","Password: ", "Password Incorrect"])
     targets.append(["../targets/intermediate/intermediate2","Secret code: ", "Auth Failure"])
     targets.append(["../targets/intermediate/intermediate3","Enter Credentials: ", "Invalid Credentials"])
 
@@ -85,5 +87,5 @@ if __name__=="__main__":
     if 0 <= selection < len(targets):
         target=targets[selection]                  #mycode
         breakBinary(target[0],target[1],target[2], word_list)
-    else:
+    else:   
         print("Invalid selection")
