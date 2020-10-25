@@ -1,8 +1,13 @@
 #!/usr/bin/env python3
 
 from brutus import Binary
+
+# as clause used to bind the name 'pro' with 'product' module from 'itertools'
+# product -> https://docs.python.org/3/library/itertools.html#itertools.product 
 from itertools import chain, product
-import time 
+
+import datetime
+
 
 def maxPos(seq):
     """ Given a list of numbers, return the **position** of the largest
@@ -18,8 +23,8 @@ def maxPos(seq):
             maxNum=seq[i]
             maxPos=i
     return maxPos
-            
 
+"""         
 def averageTry(target, promptText, failText, guess, repeats=2):
     # Provided to assist. If you use it, document it properly... :)
     # Runs multiple attempts at cracking the binary, returning the
@@ -33,16 +38,26 @@ def averageTry(target, promptText, failText, guess, repeats=2):
         success=result[0]
         results.append(result[1])
     return (success,sum(results)/len(results))
+"""
 
+
+file = open("../dictionaries/advanced/list.txt")
+read = file.read().split('\n')
 
 def bruteforce(charset, maxlength):
-    return (''.join(candidate) for candidate in chain.from_iterable(product(charset, repeat=i) for i in range(1, maxlength + 1)))
+    return (''.join(candidate)
+        for candidate in chain.from_iterable(product(charset, repeat=i)
+        for i in range(1, maxlength + 1)))
 
-list_ = (list(bruteforce("0123456789", 2)))
+
+list_ = list(bruteforce(read, 5))
+
 
 def breakBinary(target, promptText, failText):
 
+ 
     guesses = list_
+
 
     for g in guesses:        
 
@@ -51,14 +66,15 @@ def breakBinary(target, promptText, failText):
         b.run()
         success=b.attempt(promptText, g, failText)
 
-        start = time.time()
+        a = datetime.datetime.now()
 
         if success:
-            print(f"The Guess '{g}' appears to be correct")
+            b = datetime.datetime.now()
+            print(f"The Guess '{g} | {b-a}' appears to be correct")
             return g #Return the answer. No need to "break" because the return exits the function
         else:
-            end = time.time()
-            print(f"guess: {g} | {end - start} - Password incorrect!")
+            b = datetime.datetime.now()
+            print(f"guess: {g} | {b-a} - Password incorrect!")
             
 
     return None #If we get here, it means we didn't return earlier in the loop with a successful guess

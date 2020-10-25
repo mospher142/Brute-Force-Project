@@ -1,43 +1,56 @@
 #!/usr/bin/env python3
 from brutus import Binary
-from itertools import product
+
+# as clause used to bind the name 'pro' with 'product' module from 'itertools'
+# product -> https://docs.python.org/3/library/itertools.html#itertools.product 
+from itertools import product as pro
 
 #
 import pathlib
 
 #----------------------------------------------------------------------------------------------------------------------------
 
+test = int(input(""))
 
-#funcao criar lista 
-def create_list(list, item):
-    list.append(item)
-    pin = [[[(str(x) + str(y) + str(z)) for z in range(len(list))] for y in range(len(list))] for x in range(len(list))]
-    return pin
-        
-mylist = []
-for x in range(10):
-    mylist = create_list(mylist, x)
+if test == 1:
+    #funcao criar lista 
+    def create_list(list, item):
+        list.append(item)
+        pin = [[[(str(x) + str(y) + str(z)) for z in range(len(list))] for y in range(len(list))] for x in range(len(list))]
+        return pin
+            
+    mylist = []
+    for x in range(10):
+        mylist = create_list(mylist, x)
 
-def open_create_file(fl):
-    file = pathlib.Path(fl)
-    if file.exists ():
-        with open(fl, "r") as file:
-            base = file.read().split('\n')
-    else:
-        #create a file [list.txt] 
-        with open(fl, "w+") as file:
-            for y in range(len(mylist)):
-                for w in range(len(mylist[y])):
-                    for z in range(len(mylist[w])):
-                        file.write(f"{mylist[y][w][z]}\n")
-                                
-        with open(fl, "r") as file:
-            base = file.read().split('\n')
+    def open_create_file(fl):
+        file = pathlib.Path(fl)
+        if file.exists ():
+            with open(fl, "r") as file:
+                base = file.read().split('\n')
+        else:
+            #create a file [list.txt] 
+            with open(fl, "w+") as file:
+                for y in range(len(mylist)):
+                    for w in range(len(mylist[y])):
+                        for z in range(len(mylist[w])):
+                            file.write(f"{mylist[y][w][z]}\n")
+                                    
+            with open(fl, "r") as file:
+                base = file.read().split('\n')
 
-    return base
+        return base
 
 
-file_ = open_create_file("../dictionaries/basic/list.txt")
+    list_ = open_create_file("../dictionaries/basic/list.txt")
+
+elif test == 2:
+    
+    file = open("../dictionaries/basic/itertool.txt")
+    file_ = file.read().split('\n')
+ 
+    x = pro(file_, repeat=3)
+    list_ = [''.join(i) for i in x]
 
 
 #----------------------------------------------------------------------------------------------------------------------------
@@ -54,7 +67,7 @@ def breakBinary(target, promptText, failText):
         None: if no successful attempt was made
         string: a successful password"""
 
-    guesses=file_
+    guesses=list_
 
     for g in guesses:        
 
