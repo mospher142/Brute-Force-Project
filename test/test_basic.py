@@ -1,7 +1,6 @@
 import pytest
 import sys
 sys.path.append("../src/")
-from brute_basic import create_list
 import brute_basic
 
 
@@ -12,10 +11,12 @@ import brute_basic
 
 def test_create_list():
 
-    
-    #This definitely needs changing and expanding
-    #assert len(brute_basic.generateGuesses())==5
-    assert brute_basic.create_list(list) == True
+   
 
-if __name__ == "__main__":
-    test_create_list()
+    #This definitely needs changing and expanding
+    assert brute_basic.create_list(list, item=[])
+ 
+
+
+
+

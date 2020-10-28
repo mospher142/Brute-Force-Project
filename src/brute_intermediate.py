@@ -46,27 +46,29 @@ if __name__=="__main__":
     #Load the dictionary
     document=wordsFromFile("../dictionaries/intermediate/base.txt")
 
-    #dar a password os valores de document
+    #give a password the document values
     password_digits = document
 
+    #create a dicionary
     dicionary = {'o': '0', 'i': '1', 'e': '3', 'a': '4', 's':'5'}
 
     #dicionary = {'key':'value'}
     #key -> letter 
     #value -> Number
-
-    #isto vai converter as letras da palavra pelo respetivo numero que está no dicionario
+    #this will convert the letters of the word by the respective number that is in the dictionary
     for key,value in dicionary.items():
         password_digits = ([item.replace(key, value) for item in password_digits])
     
+    #create a list
     password_single_digit = []
 
+    #
     for y in range(10):
         for x in document:
             password_single_digit.append(str(x) + str(y))
 
     
-    #razao pq fiz isto e não adicionei as novas palavras à lista. Pois pq depois o diconario pode mudar e assim essas passwords adicionadas são inuteis
+    #reason why i did this and didn't add new words to the list. Because then the dictionary can change and so these added passwords are useless
     word_list = (document + password_digits + password_single_digit)
     #----------------------------------------------------------
     
@@ -85,7 +87,7 @@ if __name__=="__main__":
     selection=int(input("Enter the number of the binary to be forced: "))
 
     if 0 <= selection < len(targets):
-        target=targets[selection]                  #mycode
+        target=targets[selection]                  #insert the lists
         breakBinary(target[0],target[1],target[2], word_list)
     else:   
         print("Invalid selection")

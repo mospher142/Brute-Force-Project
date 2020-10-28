@@ -7,7 +7,6 @@ import brutus
 #You will need to write tests for your own functions
 
 
-
 def test_incorrect():
     bad_guesses=["","NO","123","aejfhskdjfhkjsdfh","-1","Swordfish", " swordfish", "swordfish "]
     for guess in bad_guesses:

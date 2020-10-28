@@ -2,58 +2,69 @@
 from brutus import Binary
 
 # as clause used to bind the name 'pro' with 'product' module from 'itertools'
-# product -> https://docs.python.org/3/library/itertools.html#itertools.product 
+# product -> https://docs.python.org/3/library/itertools.html#itertools.product
 from itertools import product as pro
 
-#
+# use this module to work with files
 import pathlib
 
-#----------------------------------------------------------------------------------------------------------------------------
+# ----------------------------------------------------------------------------------------------------------------------------
+choice = int(input("1- Create a file and run\n2- Run with Itertools\nSelect your choise: "))
 
-test = int(input(""))
-
-if test == 1:
-    #funcao criar lista 
+if choice == 1:
+    # function create list
     def create_list(list, item):
-        list.append(item)
+    # insert inside the list itens
+        list.append(item)  # -> list[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        # with this for we can create a 3d array so can create a combinations like: 000-999
         pin = [[[(str(x) + str(y) + str(z)) for z in range(len(list))] for y in range(len(list))] for x in range(len(list))]
         return pin
-            
+
+    # create a list
     mylist = []
     for x in range(10):
-        mylist = create_list(mylist, x)
+        mylist = create_list(mylist, x) #insert "x" my value inside my list calling my function[create_list(list->mylist, item->"x")]
 
+    # function to open/create a function
     def open_create_file(fl):
         file = pathlib.Path(fl)
+        # if this file exists we will open this file 
         if file.exists ():
             with open(fl, "r") as file:
                 base = file.read().split('\n')
+        # if this file not exists we will create a new file and we will insert my list [mylist] inside a file   
         else:
-            #create a file [list.txt] 
+            # create a file [list.txt] 
+            # w+ -> write inside a file 
             with open(fl, "w+") as file:
+                # this 3 for's are very
                 for y in range(len(mylist)):
                     for w in range(len(mylist[y])):
                         for z in range(len(mylist[w])):
                             file.write(f"{mylist[y][w][z]}\n")
-                                    
+            
+            # open and read the file                             
             with open(fl, "r") as file:
                 base = file.read().split('\n')
 
         return base
 
-
+    # add this file inside my function
     list_ = open_create_file("../dictionaries/basic/list.txt")
 
-elif test == 2:
+elif choice == 2:
     
-    file = open("../dictionaries/basic/itertool.txt")
-    file_ = file.read().split('\n')
+    with open("../dictionaries/basic/itertool.txt") as file:
+        file_ = file.read().split('\n')
  
     x = pro(file_, repeat=3)
     list_ = [''.join(i) for i in x]
+    
 
 
-#----------------------------------------------------------------------------------------------------------------------------
+
+
+# ----------------------------------------------------------------------------------------------------------------------------
 
 
 def breakBinary(target, promptText, failText):
