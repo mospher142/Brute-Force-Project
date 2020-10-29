@@ -1,7 +1,8 @@
+from brute_basic import create_list, select
 import pytest
 import sys
-sys.path.append("../src/")
-import brute_basic
+sys.path.append("./src/")
+from brute_basic import create_list, select
 
 
 #You will need to write tests for your own functions, or change tests for ones you modify
@@ -9,13 +10,6 @@ import brute_basic
 
 
 
-def test_create_list():
-
-   
-
-    #This definitely needs changing and expanding
-    assert brute_basic.create_list(list, item=[])
- 
 
 
 

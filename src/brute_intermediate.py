@@ -42,7 +42,6 @@ def breakBinary(target, promptText, failText, guesses):
     
 if __name__=="__main__":
 
-    #MYCODE---------------------------------------------------------
     #Load the dictionary
     document=wordsFromFile("../dictionaries/intermediate/base.txt")
 
@@ -59,18 +58,18 @@ if __name__=="__main__":
     for key,value in dicionary.items():
         password_digits = ([item.replace(key, value) for item in password_digits])
     
-    #create a list
+    #create a list 
     password_single_digit = []
 
-    #
-    for y in range(10):
+    #create a range of 10 and past were values in a file document like:  abroad0, abroad1, abroad2,  ect... 
+    for y in range(10):# range of 10 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         for x in document:
-            password_single_digit.append(str(x) + str(y))
+            password_single_digit.append(str(x) + str(y))#this is to append the number to the word inside the file/document
 
     
     #reason why i did this and didn't add new words to the list. Because then the dictionary can change and so these added passwords are useless
     word_list = (document + password_digits + password_single_digit)
-    #----------------------------------------------------------
+
     
     # Create a simple menu system to pick the binary we want to force
     targets=[]

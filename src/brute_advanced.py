@@ -54,7 +54,6 @@ def breakBinary(target, promptText, failText):
 
     #delay[0] -> True or False
     #delay[1] -> Time
-    """ """
     while delay_ != True:
         for y in list_:
             for x in password:

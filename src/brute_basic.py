@@ -8,10 +8,16 @@ from itertools import product as pro
 # use this module to work with files
 import pathlib
 
-# ----------------------------------------------------------------------------------------------------------------------------
-choice = int(input("1- Create a file and run\n2- Run with Itertools\nSelect your choise: "))
+# ----------------------------------------------------------------------------------------------------------------------------  
 
-if choice == 1:
+#function select option
+def select(choise):
+    return choise
+
+#insert a value bettwen 1 and 2
+value = select(int(input("1- Create a file and run\n2- Run with Itertools\nSelect your choise: ")))
+
+if value == 1:
     # function create list
     def create_list(list, item):
     # insert inside the list itens
@@ -37,11 +43,11 @@ if choice == 1:
             # create a file [list.txt] 
             # w+ -> write inside a file 
             with open(fl, "w+") as file:
-                # this 3 for's are very
+                #this 3 for's are used to work with a 3d array
                 for y in range(len(mylist)):
                     for w in range(len(mylist[y])):
                         for z in range(len(mylist[w])):
-                            file.write(f"{mylist[y][w][z]}\n")
+                            file.write(f"{mylist[y][w][z]}\n") # write inside the file
             
             # open and read the file                             
             with open(fl, "r") as file:
@@ -52,13 +58,14 @@ if choice == 1:
     # add this file inside my function
     list_ = open_create_file("../dictionaries/basic/list.txt")
 
-elif choice == 2:
+elif value == 2:
     
+    #open and read a file
     with open("../dictionaries/basic/itertool.txt") as file:
         file_ = file.read().split('\n')
- 
-    x = pro(file_, repeat=3)
-    list_ = [''.join(i) for i in x]
+    
+    create = pro(file_, repeat=3)
+    list_ = [''.join(i) for i in create]
     
 
 
