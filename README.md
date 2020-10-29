@@ -4,6 +4,4 @@ This is a brute force program written in Python to break some files. The program
 
 ## User documentation
 
-## Unit Tests
-
 ## Algorithms 
