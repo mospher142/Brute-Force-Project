@@ -1,7 +1,15 @@
 # Brute Campbell
+## Introduction
+This is a brute force program written in Python to break some files. The program is divided in three parts: Basic (brute_basic.py), Intermediate (brute_intermediate.py) and Advanced (brute_advanced.py). For the Basic part (brute_basic.py) we are use a simple three-digits Pin codes. For the Intermediate part (brute_intermediate.py) we are use a dictionary-based attack. For the Advanced part (brute_advanced.py) we are a use an ASCII list.
 
 ## User documentation
-
-## Unit Tests
+To execute the program, you should go first into your “src folder” and select what Brute Force environment you like to run. To make that you need to go into your terminal and write “python3 brute_basic.py” for example. After you select the Brute Force environment you pretended to run, you need to choose what target you want to break. You can find your targets in “targets folder”. After you select your target, you can see the passwords attempts. When the program finds the password, he will stop running. If you want open the target, what you have selected after you find him the password, you exit from “src folder” and enter in "targets folder". To run the target, you should write in your terminal “. /target name" and next introduce the password you have found. 
 
 ## Algorithms 
+### Creating a List of Three-Digit PINs
+To create a list of three-digit Pins you can choose, two option. The first option creates a list since 000-999, next he will check if exist a file with that information, and if is not exist he will create.  The other option is use itertools, a Python module/library.  In this library, is used it a            itertools.product(). Itertools.product() are compost by iterables and repeats. In iterables is where stay the list of range 10 and the repeats is the number of times, he repeats itself for a number, with that we get 000 to 999.
+### Creating a Word List by Modifying Dictionary Words
+In Intermediate part (brute_intermediate.py) the program starts to get a word list from “dictionary folder” where contain a list of words. After that, the program takes, words and appended into a list wherewith collaboration of the dictionary, he, starts modifying the specific letters in numbers where you can find it inside the dictionary. Next, he creates another list where takes again the words inside the word list and insert a range of 10 in all words and you can get for example: “abroad0, abroad1... airport0, airtpor1...”. Finally, he appends the two-list created in one. 
+### Exploiting Timing Issues
+In Advanced part (brute_advanced.py) first, it’s created an alphabet list where contain all letters of the alphabet. Next, the program starts to compare the time delay of each character. If a character has a big delay than other, this character is appended in a list and the program start a run again but this time he runs with the first character of the list with another character for example: “c is the letter in the list so the program run ca, cb, cc, cd…”. He repeats this process until he finds the password. When he found it the password he stops running.
+
